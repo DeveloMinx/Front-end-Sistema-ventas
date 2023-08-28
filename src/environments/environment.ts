@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endpoint:"---------URL DE LA API----------"
+  endpoint:"http://www.sistema-ventas.somee.com/api/"
 };
 
 /*

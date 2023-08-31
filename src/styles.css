@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+    /* Cambiar el color del riel de la barra de desplazamiento */
+    ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 5px;
+    }
+  
+  
+  /* Cambiar el color del riel de la barra de desplazamiento */
+  ::-webkit-scrollbar-track {
+    background: #333; /* Color de fondo del tema oscuro */
+  }
+  
+  /* Cambiar el color del pulgar (la parte arrastrable) de la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb {
+    background: #666; /* Color del pulgar en el tema oscuro */
+    border-radius: 5px; /* Agregar borde redondeado al pulgar */
+  }
+  
+  /* Cambiar el color del pulgar en estado hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888; /* Color del pulgar en hover en el tema oscuro */
+  }
+  

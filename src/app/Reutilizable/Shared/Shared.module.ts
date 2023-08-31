@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 //Angular Material
 import {MatCardModule} from '@angular/material/card'
@@ -61,7 +63,12 @@ import {MomentDateModule} from '@angular/material-moment-adapter'
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MomentDateModule
+    MomentDateModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+    
   ],
 
   providers:[

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 
+
 ///Paginas
 import { DashboardComponent } from './Pages/Dashboard/Dashboard.component';
 import { UsuarioComponent } from './Pages/Usuario/Usuario.component';
@@ -10,6 +11,9 @@ import { HistorialVentaComponent } from './Pages/HistorialVenta/HistorialVenta.c
 import { ProductoComponent } from './Pages/Producto/Producto.component';
 import { ReporteComponent } from './Pages/Reporte/Reporte.component';
 import { VentaComponent } from './Pages/Venta/Venta.component';
+
+///Modales
+import { ModalUsuarioComponent } from './Modales/modalUsuario/modalUsuario.component';
 
 
 //Modulo Angular Material
@@ -23,12 +27,14 @@ import { SharedModule } from 'src/app/Reutilizable/Shared/Shared.module';
     HistorialVentaComponent,
     ProductoComponent,
     ReporteComponent,
-    VentaComponent
+    VentaComponent,
+    ModalUsuarioComponent
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class LayoutModule { }

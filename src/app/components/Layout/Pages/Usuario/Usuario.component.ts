@@ -25,7 +25,7 @@ export class UsuarioComponent implements OnInit,AfterViewInit {
     private userService:UsuarioService,
     private utilityService:UtilidadService
   ) { }
-
+ 
 
 
   ngAfterViewInit(): void {
@@ -44,6 +44,7 @@ export class UsuarioComponent implements OnInit,AfterViewInit {
           this.utilityService.mostrarMensaje("No se encontraron datos","Cerrar")
       },
       error:(e)=>{
+        this.utilityService.mostrarMensaje(`Error al obtener usuarios ${e}`,'Cerrar')
       }
     });
   }

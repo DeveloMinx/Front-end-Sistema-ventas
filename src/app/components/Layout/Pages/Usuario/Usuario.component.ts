@@ -7,7 +7,7 @@ import { Usuario } from 'src/app/Interfaces/Usuario';
 import { UsuarioService } from 'src/app/Services/Usuario.service';
 import { UtilidadService } from 'src/app/Reutilizable/Utilidad.service';
 import Swal from 'sweetalert2';
-
+ 
 @Component({
   selector: 'app-Usuario',
   templateUrl: './Usuario.component.html',

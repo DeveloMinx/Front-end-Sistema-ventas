@@ -4,7 +4,7 @@ import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Rol } from 'src/app/Interfaces/Rol';
 import { Usuario } from 'src/app/Interfaces/Usuario';
-
+ 
 //Services
 import { RolService } from 'src/app/Services/Rol.service';
 import { UsuarioService } from 'src/app/Services/Usuario.service';
@@ -43,7 +43,7 @@ export class ModalUsuarioComponent implements OnInit {
       this.titleAction="Editar"
       this.butonAction="Actualizar"
     }
-
+    //Obtenemos la lista de roles
     this.rolService.lista().subscribe({
       next:(data)=>{
         if(data.status) this.listRol=data.value
@@ -51,10 +51,11 @@ export class ModalUsuarioComponent implements OnInit {
       error:(e)=>{
 
       }
-    })
+    });
    }
 
   ngOnInit() {
+       //Setear valores si hay informacion
     if(this.dataUser !=null){
       this.formUsuario.patchValue({
         nombreCompleto:this.dataUser.nombreCompleto,

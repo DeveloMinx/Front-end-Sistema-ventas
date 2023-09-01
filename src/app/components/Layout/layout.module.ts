@@ -14,7 +14,7 @@ import { VentaComponent } from './Pages/Venta/Venta.component';
 
 ///Modales
 import { ModalUsuarioComponent } from './Modales/modalUsuario/modalUsuario.component';
-
+import { ModalProductoComponent } from './Modales/modalProducto/modalProducto.component';
 
 //Modulo Angular Material
 import { SharedModule } from 'src/app/Reutilizable/Shared/Shared.module';
@@ -28,7 +28,8 @@ import { SharedModule } from 'src/app/Reutilizable/Shared/Shared.module';
     ProductoComponent,
     ReporteComponent,
     VentaComponent,
-    ModalUsuarioComponent
+    ModalUsuarioComponent,
+    ModalProductoComponent
   ],
   imports: [
     CommonModule,

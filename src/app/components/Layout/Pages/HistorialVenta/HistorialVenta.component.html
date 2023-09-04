@@ -1,3 +1,107 @@
-<p>
-  HistorialVenta works!
-</p>
+<h2 style="margin: 30px 0 0 50px;">Historial de Ventas</h2>
+
+<mat-card style="margin:30px ;">
+  <mat-card-content>
+    <form [formGroup]="formBuscar" (ngSubmit)="buscarVenta()">
+      <div class="camposForm">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Buscar por</mat-label>
+          <mat-select formControlName="buscarPor">
+            <mat-option *ngFor="let item of optionsBusqueda" [value]="item.value">
+              {{item.descripcion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field  appearance="fill" *ngIf="formBuscar.value.buscarPor=='numero' ">
+          <mat-label>Numero de orden</mat-label>
+          <input matInput autocomplete="off"  formControlName="numero">
+        </mat-form-field>
+
+        <mat-form-field  appearance="fill" *ngIf="formBuscar.value.buscarPor=='fecha' ">
+          <mat-label>Fecha Desde</mat-label>
+          <input matInput autocomplete="off"  formControlName="fechaInicio" [matDatepicker]="picker1">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field  appearance="fill" *ngIf="formBuscar.value.buscarPor=='fecha' ">
+          <mat-label>Fecha Hasta</mat-label>
+          <input matInput autocomplete="off"  formControlName="fechaFinal" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary"
+        [disabled]="formBuscar.invalid"
+        type="submit"
+        class="buttonSearch"
+         >
+          <mat-icon >search</mat-icon> Buscar
+        </button>
+      </div>
+    </form>
+
+      <mat-divider></mat-divider>
+
+      <mat-form-field appearance="standard" class="input-filter">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="filterTable($event)"#input>
+      </mat-form-field>
+  
+      <div class="mat-table">
+        <table mat-table [dataSource]="datosListaVenta">
+  
+          <ng-container matColumnDef="fechaRegistro">
+            <th mat-header-cell *matHeaderCellDef>Fecha de registro</th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaRegistro}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="numeroDocumento">
+            <th mat-header-cell *matHeaderCellDef> N. Venta </th>
+            <td mat-cell *matCellDef="let element"> {{element.numeroDocumento}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="tipoPago">
+            <th mat-header-cell *matHeaderCellDef> Tipo de pago </th>
+            <td mat-cell *matCellDef="let element"> {{element.tipoPago }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalTexto }} $ </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef style="width: 80px;"> </th>
+            <td mat-cell *matCellDef="let element">
+  
+              <button mat-icon-button color="primary" (click)="showDetalleVenta(element)" 
+              matTooltip="Ver Detalle">
+                <mat-icon >visibility</mat-icon> 
+              </button>
+              </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="columnsTabla"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnsTabla;"></tr>
+  
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No se encontraron datos que coincidan con el filtro <b>{{input.value}}</b></td>
+          </tr>
+  
+        </table>
+  
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons="">
+  
+        </mat-paginator>
+      </div>
+
+
+
+  </mat-card-content>
+
+
+</mat-card>
